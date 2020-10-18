@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
+import { Container } from './App';
 
 interface IProps {
     value?: string;
@@ -20,7 +21,7 @@ export const MarkdownEditor: FC<IProps> = ({ value, set_value }) => {
     });
 
     return (
-        <div style={{ width: '50%', marginRight: 10 }}>
+        <Container>
             <ReactMde
                 value={value}
                 onChange={set_value}
@@ -30,6 +31,6 @@ export const MarkdownEditor: FC<IProps> = ({ value, set_value }) => {
                     Promise.resolve(converter.makeHtml(markdown))
                 }
             />
-        </div>
+        </Container>
     );
 };

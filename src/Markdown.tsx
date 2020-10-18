@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
+import { Container } from './App';
 import { CodeBlock } from './CodeBlock';
 
 interface IProps {
@@ -9,13 +10,13 @@ interface IProps {
 
 export const Markdown:FC<IProps> = ({ value }) => {
     return (
-        <div style={{ width: '50%' }}>
+        <Container>
             Preview
             <ReactMarkdown
                 renderers={{ code: CodeBlock }}
                 plugins={[gfm]}
                 children={value}
             />
-        </div>
+        </Container>
     );
 };
