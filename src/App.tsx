@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'react-mde/lib/styles/css/react-mde-all.css';
+import { Markdown } from './Markdown';
+import { MarkdownEditor } from './MarkdownEditor';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [value, set_value] = React.useState(``);
+
+    return (
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <MarkdownEditor value={value} set_value={set_value} />
+            <Markdown value={value} />
+        </div>
+    );
 }
-
-export default App;
